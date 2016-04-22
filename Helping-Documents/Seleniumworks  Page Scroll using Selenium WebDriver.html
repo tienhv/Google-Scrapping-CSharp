@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<!-- saved from url=(0082)http://seleniumworks.blogspot.it/2013/08/page-scroll-using-selenium-webdriver.html -->
+<html class="v2 wf-coveredbyyourgrace-n4-active wf-molengo-n4-active wf-active" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="A1qExmK3RYc-fDh56UjFLrgEanW2aQ_YBZ3dXK32tYk" name="google-site-verification">
+<meta content="seleniumworks is a complete Selenium User Guide or reference that are observed with real time implementation" name="description">
+<meta content="seleniumworks, selenium, webdriver, selenium webdriver, selenium works, selenium 2, selenium guide, selenium references, selenium tutorial" name="keywords">
+<meta content="index, follow" name="robots">
+<meta content="width=1100" name="viewport">
+
+<script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/cb=gapi.loaded_4" async=""></script><script async="" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/analytics.js"></script><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/cb=gapi.loaded_3" async=""></script><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/cb=gapi.loaded_2" async=""></script><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/cb=gapi.loaded_1" async=""></script><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/cb=gapi.loaded_0" async=""></script><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/webfont.js" type="text/javascript" async=""></script><script type="text/javascript">(function() { var b=window,f="chrome",g="tick",k="jstiming";(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{b.console.timeStamp("CSI/"+a)}catch(h){}};this[g]("start",null,a)}var a;b.performance&&(a=b.performance.timing);var n=a?new d(a.responseStart):new d;b.jstiming={Timer:d,load:n};if(a){var c=a.navigationStart,h=a.responseStart;0<c&&h>=c&&(b[k].srt=h-c)}if(a){var e=b[k].load;0<c&&h>=c&&(e[g]("_wtsrt",void 0,c),e[g]("wtsrt_","_wtsrt",h),e[g]("tbsd_","wtsrt_"))}try{a=null,
+b[f]&&b[f].csi&&(a=Math.floor(b[f].csi().pageT),e&&0<c&&(e[g]("_tbnd",void 0,b[f].csi().startE),e[g]("tbnd_","_tbnd",c))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,e&&0<c&&(e[g]("_tbnd",void 0,b.external.startE),e[g]("tbnd_","_tbnd",c))),a&&(b[k].pt=a)}catch(p){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[k].load[g]("aft")};var l=!1;function m(){l||(l=!0,b[k].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",m,!1):b.attachEvent("onscroll",m);
+ })();</script>
+<meta content="blogger" name="generator">
+<link href="http://seleniumworks.blogspot.it/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="Seleniumworks - Atom" href="http://seleniumworks.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="Seleniumworks - RSS" href="http://seleniumworks.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="Seleniumworks - Atom" href="http://www.blogger.com/feeds/3216546624020440159/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="Seleniumworks - Atom" href="http://seleniumworks.blogspot.com/feeds/1831499222105769685/comments/default">
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/1132178481-ieretrofit.js"></script>
+<![endif]-->
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>Seleniumworks: Page Scroll using Selenium WebDriver</title>
+<script type="text/javascript">
+WebFontConfig = {
+  google: { families: [ 'Covered By Your Grace', 'Molengo' ],
+  api: '//fonts.googleapis.com/css?kit=6ozZp4BPlrbDRWPe3EBGAyVjQu6QPx48WNY5ti7FEIflhUwK7KqHvMavH4SzuunF'
+  },
+  loading: function() {
+    if (window.jstiming) window.jstiming.load.tick('webfontLoading');
+  },
+  active: function() {
+    if (window.jstiming) window.jstiming.load.tick('webfontActive');
+  }
+};
+(function() {
+  var wf = document.createElement('script');
+  wf.src = '//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+  wf.type = 'text/javascript';
+  wf.async = 'true';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(wf, s);
+})();
+</script>
+<style type="text/css">
+.wf-inactive .header h1, .wf-coveredbyyourgrace-n4-loading .header h1, .wf-coveredbyyourgrace-n4-inactive .header h1 {
+  font-family: cursive;
+}
+.wf-inactive .main-inner .widget h2.date-header, .wf-molengo-n4-loading .main-inner .widget h2.date-header, .wf-molengo-n4-inactive .main-inner .widget h2.date-header, .wf-inactive .main-inner .widget h2.date-header span, .wf-molengo-n4-loading .main-inner .widget h2.date-header span, .wf-molengo-n4-inactive .main-inner .widget h2.date-header span {
+  font-family: sans-serif;
+}
+</style>
+<link type="text/css" rel="stylesheet" href="./Seleniumworks  Page Scroll using Selenium WebDriver_files/3681447274-widget_css_2_bundle.css">
+<link type="text/css" rel="stylesheet" href="./Seleniumworks  Page Scroll using Selenium WebDriver_files/authorization.css">
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Awesome Inc.
+Designer: Tina Chen
+URL:      tinachen.org
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#ffffff"/>
+<Group description="Page" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 13px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.background.color" description="Background Color" type="color" default="#000000"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#ffffff"/>
+</Group>
+<Group description="Links" selector=".main-inner">
+<Variable name="link.color" description="Link Color" type="color" default="#888888"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#444444"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#cccccc"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Title Font" type="font"
+default="normal bold 40px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#c9c936" />
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="description.text.color" description="Text Color" type="color"
+default="#c9c936" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#c9c936"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#ffffff"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#141414"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#444444"/>
+<Variable name="tabs.border.color" description="Border Color" type="color" default="#000000"/>
+</Group>
+<Group description="Date Header" selector=".main-inner .widget h2.date-header, .main-inner .widget h2.date-header span">
+<Variable name="date.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="date.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="date.border.color" description="Border Color" type="color" default="#000000"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, h4, h3.post-title a">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="post.title.text.color" description="Text Color" type="color" default="#c9c936"/>
+</Group>
+<Group description="Post Background" selector=".post">
+<Variable name="post.background.color" description="Background Color" type="color" default="#c9c967" />
+<Variable name="post.border.color" description="Border Color" type="color" default="#000000" />
+<Variable name="post.border.bevel.color" description="Bevel Color" type="color" default="#000000"/>
+</Group>
+<Group description="Gadget Title" selector="h2">
+<Variable name="widget.title.font" description="Font" type="font"
+default="normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Text Color" type="color" default="#c9c936"/>
+</Group>
+<Group description="Gadget Text" selector=".sidebar .widget">
+<Variable name="widget.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.text.color" description="Text Color" type="color" default="#c9c936"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#666666"/>
+</Group>
+<Group description="Gadget Links" selector=".sidebar .widget">
+<Variable name="widget.link.color" description="Link Color" type="color" default="#ffffff"/>
+<Variable name="widget.link.visited.color" description="Visited Color" type="color" default="#ffffff"/>
+<Variable name="widget.link.hover.color" description="Hover Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadget Background" selector=".sidebar .widget">
+<Variable name="widget.background.color" description="Background Color" type="color" default="#141414"/>
+<Variable name="widget.border.color" description="Border Color" type="color" default="#222222"/>
+<Variable name="widget.border.bevel.color" description="Bevel Color" type="color" default="#000000"/>
+</Group>
+<Group description="Sidebar Background" selector=".column-left-inner .column-right-inner">
+<Variable name="widget.outer.background.color" description="Background Color" type="color" default="transparent" />
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="transparent"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="transparent"/>
+</Group>
+<Group description="Feed" selector=".blog-feeds">
+<Variable name="feed.text.color" description="Text Color" type="color" default="#c9c936"/>
+</Group>
+<Group description="Feed Links" selector=".blog-feeds">
+<Variable name="feed.link.color" description="Link Color" type="color" default="#ffffff"/>
+<Variable name="feed.link.visited.color" description="Visited Color" type="color" default="#ffffff"/>
+<Variable name="feed.link.hover.color" description="Hover Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Pager" selector=".blog-pager">
+<Variable name="pager.background.color" description="Background Color" type="color" default="#000000" />
+</Group>
+<Group description="Footer" selector=".footer-outer">
+<Variable name="footer.background.color" description="Background Color" type="color" default="#c9c967" />
+<Variable name="footer.text.color" description="Text Color" type="color" default="#c9c936" />
+</Group>
+<Variable name="title.shadow.spread" description="Title Shadow" type="length" default="-1px"/>
+<Variable name="body.background" description="Body Background" type="background"
+color="#000000"
+default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="none"/>
+<Variable name="body.background.size" description="Body Background Size" type="string" default="auto"/>
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="none"/>
+<Variable name="header.background.gradient" description="Header Background Gradient" type="url" default="none" />
+<Variable name="header.padding.top" description="Header Top Padding" type="length" default="22px" />
+<Variable name="header.margin.top" description="Header Top Margin" type="length" default="0" />
+<Variable name="header.margin.bottom" description="Header Bottom Margin" type="length" default="0" />
+<Variable name="widget.padding.top" description="Widget Padding Top" type="length" default="8px" />
+<Variable name="widget.padding.side" description="Widget Padding Side" type="length" default="15px" />
+<Variable name="widget.outer.margin.top" description="Widget Top Margin" type="length" default="0" />
+<Variable name="widget.outer.background.gradient" description="Gradient" type="url" default="none" />
+<Variable name="widget.border.radius" description="Gadget Border Radius" type="length" default="0" />
+<Variable name="outer.shadow.spread" description="Outer Shadow Size" type="length" default="0" />
+<Variable name="date.header.border.radius.top" description="Date Header Border Radius Top" type="length" default="0" />
+<Variable name="date.header.position" description="Date Header Position" type="length" default="15px" />
+<Variable name="date.space" description="Date Space" type="length" default="30px" />
+<Variable name="date.position" description="Date Float" type="string" default="static" />
+<Variable name="date.padding.bottom" description="Date Padding Bottom" type="length" default="0" />
+<Variable name="date.border.size" description="Date Border Size" type="length" default="0" />
+<Variable name="date.background" description="Date Background" type="background" color="transparent"
+default="$(color) none no-repeat scroll top left" />
+<Variable name="date.first.border.radius.top" description="Date First top radius" type="length" default="0" />
+<Variable name="date.last.space.bottom" description="Date Last Space Bottom" type="length"
+default="20px" />
+<Variable name="date.last.border.radius.bottom" description="Date Last bottom radius" type="length" default="0" />
+<Variable name="post.first.padding.top" description="First Post Padding Top" type="length" default="0" />
+<Variable name="image.shadow.spread" description="Image Shadow Size" type="length" default="0"/>
+<Variable name="image.border.radius" description="Image Border Radius" type="length" default="0"/>
+<Variable name="separator.outdent" description="Separator Outdent" type="length" default="15px" />
+<Variable name="title.separator.border.size" description="Widget Title Border Size" type="length" default="1px" />
+<Variable name="list.separator.border.size" description="List Separator Border Size" type="length" default="1px" />
+<Variable name="shadow.spread" description="Shadow Size" type="length" default="0"/>
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+<Variable name="date.side" description="Side where date header is placed" type="string" default="right"/>
+<Variable name="pager.border.radius.top" description="Pager Border Top Radius" type="length" default="0" />
+<Variable name="pager.space.top" description="Pager Top Space" type="length" default="1em" />
+<Variable name="footer.background.gradient" description="Background Gradient" type="url" default="none" />
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string"
+default="auto"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 13px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #c9c936;
+background: #c9c967 url(//themes.googleusercontent.com/image?id=18AptcsW3vZ0Atpeb67jjVfiaZ50_O0rX0EU7kiCPZ4oQqR4ua_WiPbsACITyhYInyBQc) no-repeat fixed top center /* Credit: Airyelf (http://www.istockphoto.com/googleimages.php?id=2622521&platform=blogger) */;
+}
+html body .content-outer {
+min-width: 0;
+max-width: 100%;
+width: 100%;
+}
+a:link {
+text-decoration: none;
+color: #ffffff;
+}
+a:visited {
+text-decoration: none;
+color: #ffffff;
+}
+a:hover {
+text-decoration: underline;
+color: #eeeeee;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 276px;
+width: 100%;
+background: transparent none repeat-x scroll top left;
+_background-image: none;
+}
+/* Columns
+----------------------------------------------- */
+.content-inner {
+padding: 0;
+}
+.header-inner .section {
+margin: 0 16px;
+}
+.tabs-inner .section {
+margin: 0 16px;
+}
+.main-inner {
+padding-top: 30px;
+}
+.main-inner .column-center-inner,
+.main-inner .column-left-inner,
+.main-inner .column-right-inner {
+padding: 0 5px;
+}
+*+html body .main-inner .column-center-inner {
+margin-top: -30px;
+}
+#layout .main-inner .column-center-inner {
+margin-top: 0;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+margin: 0 0 0 0;
+background: transparent none repeat scroll 0 0;
+}
+.Header h1 {
+font: normal bold 50px Covered By Your Grace;
+color: #ffffff;
+text-shadow: 0 0 -1px #000000;
+}
+.Header h1 a {
+color: #ffffff;
+}
+.Header .description {
+font: normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+.header-inner .Header .titlewrapper,
+.header-inner .Header .descriptionwrapper {
+padding-left: 0;
+padding-right: 0;
+margin-bottom: 0;
+}
+.header-inner .Header .titlewrapper {
+padding-top: 22px;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-outer {
+overflow: hidden;
+position: relative;
+background: #000000 none repeat scroll 0 0;
+}
+#layout .tabs-outer {
+overflow: visible;
+}
+.tabs-cap-top, .tabs-cap-bottom {
+position: absolute;
+width: 100%;
+border-top: 1px solid #000000;
+}
+.tabs-cap-bottom {
+bottom: 0;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+margin: 0;
+padding: .6em 1.5em;
+font: normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+border-top: 1px solid #000000;
+border-bottom: 1px solid #000000;
+border-left: 1px solid #000000;
+height: 16px;
+line-height: 16px;
+}
+.tabs-inner .widget li:last-child a {
+border-right: 1px solid #000000;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+background: #000000 none repeat-x scroll 0 -100px;
+color: #ffffff;
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+font: normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+/* Widgets
+----------------------------------------------- */
+.main-inner .section {
+margin: 0 27px;
+padding: 0;
+}
+.main-inner .column-left-outer,
+.main-inner .column-right-outer {
+margin-top: 0;
+}
+#layout .main-inner .column-left-outer,
+#layout .main-inner .column-right-outer {
+margin-top: 0;
+}
+.main-inner .column-left-inner,
+.main-inner .column-right-inner {
+background: transparent none repeat 0 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+#layout .main-inner .column-left-inner,
+#layout .main-inner .column-right-inner {
+margin-top: 0;
+}
+.sidebar .widget {
+font: normal bold 14px 'Trebuchet MS', Trebuchet, sans-serif;
+color: #000000;
+}
+.sidebar .widget a:link {
+color: #000000;
+}
+.sidebar .widget a:visited {
+color: #595927;
+}
+.sidebar .widget a:hover {
+color: #ffffff;
+}
+.sidebar .widget h2 {
+text-shadow: 0 0 -1px #000000;
+}
+.main-inner .widget {
+background-color: #c9c967;
+border: 1px solid #000000;
+padding: 0 15px 15px;
+margin: 20px -16px;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.main-inner .widget h2 {
+margin: 0 -15px;
+padding: .6em 15px .5em;
+border-bottom: 1px solid #595927;
+}
+.footer-inner .widget h2 {
+padding: 0 0 .4em;
+border-bottom: 1px solid #595927;
+}
+.main-inner .widget h2 + div, .footer-inner .widget h2 + div {
+border-top: 1px solid #000000;
+padding-top: 8px;
+}
+.main-inner .widget .widget-content {
+margin: 0 -15px;
+padding: 7px 15px 0;
+}
+.main-inner .widget ul, .main-inner .widget #ArchiveList ul.flat {
+margin: -8px -15px 0;
+padding: 0;
+list-style: none;
+}
+.main-inner .widget #ArchiveList {
+margin: -8px 0 0;
+}
+.main-inner .widget ul li, .main-inner .widget #ArchiveList ul.flat li {
+padding: .5em 15px;
+text-indent: 0;
+color: #000000;
+border-top: 1px solid #000000;
+border-bottom: 1px solid #595927;
+}
+.main-inner .widget #ArchiveList ul li {
+padding-top: .25em;
+padding-bottom: .25em;
+}
+.main-inner .widget ul li:first-child, .main-inner .widget #ArchiveList ul.flat li:first-child {
+border-top: none;
+}
+.main-inner .widget ul li:last-child, .main-inner .widget #ArchiveList ul.flat li:last-child {
+border-bottom: none;
+}
+.post-body {
+position: relative;
+}
+.main-inner .widget .post-body ul {
+padding: 0 2.5em;
+margin: .5em 0;
+list-style: disc;
+}
+.main-inner .widget .post-body ul li {
+padding: 0.25em 0;
+margin-bottom: .25em;
+color: #c9c936;
+border: none;
+}
+.footer-inner .widget ul {
+padding: 0;
+list-style: none;
+}
+.widget .zippy {
+color: #000000;
+}
+/* Posts
+----------------------------------------------- */
+body .main-inner .Blog {
+padding: 0;
+margin-bottom: 1em;
+background-color: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+.main-inner .section:last-child .Blog:last-child {
+padding: 0;
+margin-bottom: 1em;
+}
+.main-inner .widget h2.date-header {
+margin: 0 -15px 1px;
+padding: 0 0 0 0;
+font: normal normal 14px Molengo;
+color: #c4c4c4;
+background: transparent none no-repeat scroll top left;
+border-top: 0 solid #000000;
+border-bottom: 1px solid #595927;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+position: static;
+bottom: 100%;
+right: 15px;
+text-shadow: 0 0 -1px #000000;
+}
+.main-inner .widget h2.date-header span {
+font: normal normal 14px Molengo;
+display: block;
+padding: .5em 15px;
+border-left: 0 solid #000000;
+border-right: 0 solid #000000;
+}
+.date-outer {
+position: relative;
+margin: 30px 0 20px;
+padding: 0 15px;
+background-color: #000000;
+border: 1px solid #ffffff;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+}
+.date-outer:first-child {
+margin-top: 0;
+}
+.date-outer:last-child {
+margin-bottom: 20px;
+-moz-border-radius-bottomleft: 0;
+-moz-border-radius-bottomright: 0;
+-webkit-border-bottom-left-radius: 0;
+-webkit-border-bottom-right-radius: 0;
+-goog-ms-border-bottom-left-radius: 0;
+-goog-ms-border-bottom-right-radius: 0;
+border-bottom-left-radius: 0;
+border-bottom-right-radius: 0;
+}
+.date-posts {
+margin: 0 -15px;
+padding: 0 15px;
+clear: both;
+}
+.post-outer, .inline-ad {
+border-top: 1px solid #000000;
+margin: 0 -15px;
+padding: 15px 15px;
+}
+.post-outer {
+padding-bottom: 10px;
+}
+.post-outer:first-child {
+padding-top: 0;
+border-top: none;
+}
+.post-outer:last-child, .inline-ad:last-child {
+border-bottom: none;
+}
+.post-body {
+position: relative;
+}
+.post-body img {
+padding: 8px;
+background: #000000;
+border: 1px solid transparent;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+}
+h3.post-title, h4 {
+font: normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+h3.post-title a {
+font: normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #ffffff;
+}
+h3.post-title a:hover {
+color: #eeeeee;
+text-decoration: underline;
+}
+.post-header {
+margin: 0 0 1em;
+}
+.post-body {
+line-height: 1.4;
+}
+.post-outer h2 {
+color: #c9c936;
+}
+.post-footer {
+margin: 1.5em 0 0;
+}
+#blog-pager {
+padding: 15px;
+font-size: 120%;
+background-color: #000000;
+border: 1px solid #000000;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+-goog-ms-border-radius: 0;
+border-radius: 0;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-goog-ms-border-top-left-radius: 0;
+-goog-ms-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius-topright: 0;
+margin-top: 1em;
+}
+.blog-feeds, .post-feeds {
+margin: 1em 0;
+text-align: center;
+color: transparent;
+}
+.blog-feeds a, .post-feeds a {
+color: transparent;
+}
+.blog-feeds a:visited, .post-feeds a:visited {
+color: transparent;
+}
+.blog-feeds a:hover, .post-feeds a:hover {
+color: transparent;
+}
+.post-outer .comments {
+margin-top: 2em;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #000000;
+border-bottom: 1px solid #000000;
+}
+.comments .continue {
+border-top: 2px solid #000000;
+}
+/* Footer
+----------------------------------------------- */
+.footer-outer {
+margin: -0 0 -1px;
+padding: 0 0 0;
+color: #000000;
+overflow: hidden;
+}
+.footer-fauxborder-left {
+border-top: 1px solid #000000;
+background: #c9c967 none repeat scroll 0 0;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+-goog-ms-box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+box-shadow: 0 0 0 rgba(0, 0, 0, .2);
+margin: 0 -0;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+*+html body.mobile .main-inner .column-center-inner {
+margin-top: 0;
+}
+.mobile .main-inner .widget {
+padding: 0 0 15px;
+}
+.mobile .main-inner .widget h2 + div,
+.mobile .footer-inner .widget h2 + div {
+border-top: none;
+padding-top: 0;
+}
+.mobile .footer-inner .widget h2 {
+padding: 0.5em 0;
+border-bottom: none;
+}
+.mobile .main-inner .widget .widget-content {
+margin: 0;
+padding: 7px 0 0;
+}
+.mobile .main-inner .widget ul,
+.mobile .main-inner .widget #ArchiveList ul.flat {
+margin: 0 -15px 0;
+}
+.mobile .main-inner .widget h2.date-header {
+right: 0;
+}
+.mobile .date-header span {
+padding: 0.4em 0;
+}
+.mobile .date-outer:first-child {
+margin-bottom: 0;
+border: 1px solid #ffffff;
+-moz-border-radius-topleft: 0;
+-moz-border-radius-topright: 0;
+-webkit-border-top-left-radius: 0;
+-webkit-border-top-right-radius: 0;
+-goog-ms-border-top-left-radius: 0;
+-goog-ms-border-top-right-radius: 0;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+.mobile .date-outer {
+border-color: #ffffff;
+border-width: 0 1px 1px;
+}
+.mobile .date-outer:last-child {
+margin-bottom: 0;
+}
+.mobile .main-inner {
+padding: 0;
+}
+.mobile .header-inner .section {
+margin: 0;
+}
+.mobile .post-outer, .mobile .inline-ad {
+padding: 5px 0;
+}
+.mobile .tabs-inner .section {
+margin: 0 10px;
+}
+.mobile .main-inner .widget h2 {
+margin: 0;
+padding: 0;
+}
+.mobile .main-inner .widget h2.date-header span {
+padding: 0;
+}
+.mobile .main-inner .widget .widget-content {
+margin: 0;
+padding: 7px 0 0;
+}
+.mobile #blog-pager {
+border: 1px solid transparent;
+background: #c9c967 none repeat scroll 0 0;
+}
+.mobile .main-inner .column-left-inner,
+.mobile .main-inner .column-right-inner {
+background: transparent none repeat 0 0;
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+-goog-ms-box-shadow: none;
+box-shadow: none;
+}
+.mobile .date-posts {
+margin: 0;
+padding: 0;
+}
+.mobile .footer-fauxborder-left {
+margin: 0;
+border-top: inherit;
+}
+.mobile .main-inner .section:last-child .Blog:last-child {
+margin-bottom: 0;
+}
+.mobile-index-contents {
+color: #c9c936;
+}
+.mobile .mobile-link-button {
+background: #ffffff none repeat scroll 0 0;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background: transparent;
+border-top: 1px solid;
+border-color: #000000;
+color: #ffffff;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #000000;
+}
+#PopularPosts1 h2{
+padding:8px 10px 3px 10;
+width:100%;
+margin:0;
+font-size:16px;
+position:relative;
+left:-14px;
+display:block;
+border-bottom:0px solid #ccc;
+}
+#PopularPosts1 ul{
+list-style:none;
+counter-reset:li;
+padding:10px;
+width:100%;
+}
+#PopularPosts1 li{ /* Styles of each element */
+width:100%;
+position:relative;
+left:0;
+margin:10 0 6px 10px;
+padding:4px 5px;
+}
+#PopularPosts1 ul li:before{ /* Style of the numbers */
+content:counter(li);
+counter-increment:li;
+position:absolute;
+top:6px;
+left:-3px;
+font-size:21px;
+width:28px;
+height:28px;
+border-radius: 50%;
+color:#777; /* Text color */
+border: 2px solid #ddd; /* Rounded border color */
+padding:0;
+text-indent:9px;
+}
+#PopularPosts1 ul li a{
+display:block;
+position:relative;
+left:-5px;
+width:100%;
+margin:0;
+min-height:28px;
+padding: 5px 3px 4px 39px;
+color:#333; /* color of the links */
+text-decoration:none;
+font-size:14px; /* Font size of the links */
+font-style: italic;
+}
+#PopularPosts1 ul li a:hover{
+color:#3366ff;
+margin-left:3px;
+}
+/* Social icons for Blogger
+----------------------------------------------- */
+#social-icons {
+margin-bottom:-30px;
+height:50px;
+width:100%;
+display:block;
+clear:both;
+z-index: 2;
+position: relative;
+}
+.social-media-icons {
+display:table
+}
+.social-media-icons ul {
+text-align:right;
+padding:5px 5px 0 0
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+}
+.social-media-icons ul {
+margin-bottom:0;
+padding:0;
+float:right;
+}
+.social-media-icons li.media_icon {
+margin-left:6px;
+padding-left:0 !important;
+background:none !important;
+display:inline;
+float:left;
+}
+.social-media-icons li:hover {
+-moz-transform: rotate(360deg);
+-webkit-transform: rotate(360deg);
+-o-transform: rotate(360deg);
+transform: rotate(-360deg);
+-moz-transition: all 0.5s ease-in-out;
+-webkit-transition: all 0.5s ease-in-out;
+-o-transition: all 0.5s ease-in-out;
+-ms-transition: all 0.5s ease-in-out;
+transition: all 0.5s ease-in-out;
+}
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 1070px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1070px;
+max-width: 1070px;
+_width: 1070px;
+}
+.main-inner .columns {
+padding-left: 0;
+padding-right: 380px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0;
+right: 380px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0") -
+parseInt("380px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 380px;
+}
+.main-inner .column-left-outer {
+width: 0;
+right: 100%;
+margin-left: -0;
+}
+.main-inner .column-right-outer {
+width: 380px;
+margin-right: -380px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?kit=6ozZp4BPlrbDRWPe3EBGAyVjQu6QPx48WNY5ti7FEIflhUwK7KqHvMavH4SzuunF"><script type="text/javascript">var a="indexOf",b="&m=1",e="(^|&)m=",f="?",g="?m=1";function h(){var c=window.location.href,d=c.split(f);switch(d.length){case 1:return c+g;case 2:return 0<=d[1].search(e)?null:c+b;default:return null}}var k=navigator.userAgent;if(-1!=k[a]("Mobile")&&-1!=k[a]("WebKit")&&-1==k[a]("iPad")||-1!=k[a]("Opera Mini")||-1!=k[a]("IEMobile")){var l=h();l&&window.location.replace(l)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/google_top_exp.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.tbl-grey .pls-vertShim{background-color:#f5f5f5 !important}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.tbl-grey .pls-tailbottom,.tbl-grey .pls-tailtop,.tbl-grey .pls-tailright,.tbl-grey .pls-tailleft,.tbl-grey .pls-dropTR,.tbl-grey .pls-dropBR,.tbl-grey .pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite-grey.png) !important}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0}</style></head>
+<body class=" variant-dark" data-twttr-rendered="true" style="z-index: -10;">
+<div class="navbar section" id="navbar"><div class="widget Navbar" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="" tabindex="0" vspace="0" width="100%" id="navbar-iframe" name="navbar-iframe" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/navbar.html"></iframe></div>
+<script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript">
+        gapi.load("gapi.iframes:gapi.iframes.style.bubble", function() {
+          if (gapi.iframes && gapi.iframes.getContext) {
+            gapi.iframes.getContext().openChild({
+                url: 'https://www.blogger.com/navbar.g?targetBlogID\0753216546624020440159\46blogName\75Seleniumworks\46publishMode\75PUBLISH_MODE_BLOGSPOT\46navbarType\75LIGHT\46layoutType\75LAYOUTS\46searchRoot\75http://seleniumworks.blogspot.com/search\46blogLocale\75en_GB\46v\0752\46homepageUrl\75http://seleniumworks.blogspot.com/\46targetPostID\0751831499222105769685\46blogPostOrPageUrl\75http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html\46blogFollowUrl\75https://plus.google.com/104394276212961437513\46vt\0752789341713991269443',
+                where: document.getElementById("navbar-iframe-container"),
+                id: "navbar-iframe"
+            });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="social-media-icons" id="social-icons">
+<ul>
+<li class="media_icon"><a href="https://www.facebook.com/groups/selenimusers/"><img border="0" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/Facebook.png"></a></li>
+<li class="media_icon"><a href="https://twitter.com/prashanthsams"><img border="0" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/Twitter.png"></a></li>
+<li class="media_icon"><a href="https://plus.google.com/104394276212961437513/posts"><img border="0" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/googleplus.png"></a></li>
+<li class="media_icon"><a href="http://seleniumworks.blogspot.in/"><img border="0" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/RSS.png"></a></li>
+</ul></div>
+<div class="header section" id="header"><div class="widget Header" id="Header1">
+<div id="header-inner" style="background-image: url(&quot;http://2.bp.blogspot.com/-YxHP20En8kU/UQY5H1mCOaI/AAAAAAAAASQ/3FA4Fu6sugQ/s1600/123.png&quot;); background-position: left; width: 370px; min-height: 86px; _height: 86px; background-repeat: no-repeat; ">
+<div class="titlewrapper" style="background: transparent">
+<h1 class="title" style="background: transparent; border-width: 0px">
+<a href="http://seleniumworks.blogspot.it/">Seleniumworks</a>
+</h1>
+</div>
+<div class="descriptionwrapper">
+<p class="description"><span>
+</span></p>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol"></div>
+<div class="tabs section" id="crosscol-overflow"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main"><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Wednesday, 28 August 2013</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="3216546624020440159" itemprop="blogId">
+<meta content="1831499222105769685" itemprop="postId">
+<a name="1831499222105769685"></a>
+<h3 class="post-title entry-title" itemprop="name">
+Page Scroll using Selenium WebDriver
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-1831499222105769685" itemprop="description articleBody">
+<div dir="ltr" style="text-align: left;" trbidi="on">
+<br>
+<b><span style="font-size: large;"><span style="color: orange; font-family: Helvetica, Arial, sans-serif;">Scroll Down:</span></span></b><br>
+<br>
+<span style="color: #999999;">import org.openqa.selenium.JavascriptExecutor;</span><br>
+<span style="color: #999999;">WebDriver driver = new FirefoxDriver();</span><br>
+<span style="color: #999999;">JavascriptExecutor jse = (JavascriptExecutor)driver;</span><br>
+<span style="color: #999999;">jse.executeScript("scroll(0, </span><span style="color: orange;">250</span><span style="color: #999999;">)"); </span><span style="color: #93c47d;">//y value '250' can be altered</span><br>
+<br>
+<b><span style="font-size: large;"><span style="color: orange; font-family: Helvetica, Arial, sans-serif;">Scroll up:</span></span></b><br>
+<br>
+<span style="color: #999999;">JavascriptExecutor jse = (JavascriptExecutor)driver;</span><br>
+<span style="color: #999999;">jse.executeScript("scroll(</span><span style="color: orange;">250</span><span style="color: #999999;">, 0)");</span><span style="color: #93c47d;"> //x value '250' can be altered</span><br>
+<span style="color: orange; font-family: Helvetica, Arial, sans-serif; font-size: large;"><b><br></b></span><b><span style="font-size: large;"><span style="color: orange; font-family: Helvetica, Arial, sans-serif;">Scroll bottom of the Page:</span></span></b><br>
+<br>
+<span style="color: #999999;">JavascriptExecutor jse = (JavascriptExecutor)driver;</span><br>
+<span style="color: #999999;">jse.executeScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");</span><br>
+<span style="color: orange;">(or)</span><br>
+<span style="color: #999999;">Actions actions = new Actions(driver);</span><br>
+<span style="color: #999999;">actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();</span><br>
+<br style="color: orange; font-family: Helvetica, Arial, sans-serif; font-size: x-large; font-weight: bold;">
+<b><span style="font-size: large;"><span style="color: orange; font-family: Helvetica, Arial, sans-serif;">Full scroll to bottom in slow motion:</span></span></b><br>
+<br>
+<span style="color: #999999;">for (int second = 0;; second++) {</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; if(second &gt;=60){</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; }</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ((JavascriptExecutor) driver).executeScript("window.scrollBy(0,</span><span style="color: orange;">400</span><span style="color: #999999;">)", "");&nbsp;</span><span style="color: #93c47d;">//y value '400' can be altered</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Thread.sleep(3000);</span><br>
+<span style="color: #999999;">}</span><br>
+<span style="color: orange;">(or)</span><br>
+<span style="color: #999999;">JavascriptExecutor jse = (JavascriptExecutor)driver;</span><br>
+<span style="color: #999999;">for (int second = 0;; second++) {</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; if(second &gt;=60){</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; break;</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; }</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; jse.executeScript("window.scrollBy(0,</span><span style="color: orange;">800</span><span style="color: #999999;">)", "");&nbsp;</span><span style="color: #93c47d;">//y value '800' can be altered</span><br>
+<span style="color: #999999;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Thread.sleep(3000);</span><br>
+<span style="color: #999999;">}</span><br>
+<span style="color: orange; font-family: Helvetica, Arial, sans-serif; font-size: large;"><b><br></b></span><b><span style="font-size: large;"><span style="color: orange; font-family: Helvetica, Arial, sans-serif;">Scroll automatically to your WebElement:</span></span></b><br>
+<br>
+<span style="color: #999999;">Point hoverItem =driver.findElement(By.xpath("</span><span style="color: orange;">Value</span><span style="color: #999999;">")).getLocation();</span><br>
+<span style="color: #999999;">((JavascriptExecutor)driver).executeScript("return window.title;"); &nbsp; &nbsp;</span><br>
+<span style="color: #999999;">Thread.sleep(6000);</span><br>
+<span style="color: #999999;">((JavascriptExecutor)driver).executeScript("window.scrollBy(0,"+(hoverItem.getY())+");");&nbsp;</span><br>
+<span style="color: #93c47d;">// Adjust your page view by making changes right over here&nbsp;</span><span style="color: #999999;">(hoverItem.getY()-</span><span style="color: orange;">400</span><span style="color: #999999;">)</span><br>
+<span style="color: orange;">(or)</span><br>
+<span style="color: #999999;">((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(By.xpath("</span><span style="color: orange;">Value</span><span style="color: #999999;">')]")));</span><br>
+<span style="color: orange;">(or)</span><br>
+<span style="color: #999999;">WebElement element = driver.findElement(By.xpath("</span><span style="color: orange;">Value</span><span style="color: #999999;">"));</span><br>
+<span style="color: #999999;">Coordinates coordinate = ((Locatable)element).getCoordinates();&nbsp;</span><br>
+<span style="color: #999999;">coordinate.onPage();&nbsp;</span><br>
+<span style="color: #999999;">coordinate.inViewPort();</span></div>
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="https://plus.google.com/104394276212961437513" itemprop="url">
+<a class="g-profile" href="https://plus.google.com/104394276212961437513" rel="author" title="author profile" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+<span itemprop="name">Prashanth sams</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html" itemprop="url">
+<a class="timestamp-link" href="./Seleniumworks  Page Scroll using Selenium WebDriver_files/Seleniumworks  Page Scroll using Selenium WebDriver.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2013-08-28T01:43:00-07:00">01:43</abbr></a>
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-251022262">
+<a href="http://www.blogger.com/post-edit.g?blogID=3216546624020440159&postID=1831499222105769685&from=pencil" title="Edit Post">
+<img alt="" class="icon-action" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="http://www.blogger.com/share-post.g?blogID=3216546624020440159&postID=1831499222105769685&target=email" target="_blank" title="Email This"><span class="share-button-link-text">Email This</span></a><a class="goog-inline-block share-button sb-blog" href="http://www.blogger.com/share-post.g?blogID=3216546624020440159&postID=1831499222105769685&target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis!"><span class="share-button-link-text">BlogThis!</span></a><a class="goog-inline-block share-button sb-twitter" href="http://www.blogger.com/share-post.g?blogID=3216546624020440159&postID=1831499222105769685&target=twitter" target="_blank" title="Share to Twitter"><span class="share-button-link-text">Share to Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="http://www.blogger.com/share-post.g?blogID=3216546624020440159&postID=1831499222105769685&target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="Share to Facebook"><span class="share-button-link-text">Share to Facebook</span></a><a class="goog-inline-block share-button sb-pinterest" href="http://www.blogger.com/share-post.g?blogID=3216546624020440159&postID=1831499222105769685&target=pinterest" target="_blank" title="Share to Pinterest"><span class="share-button-link-text">Share to Pinterest</span></a><div class="goog-inline-block dummy-container"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 300px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1425931710427" name="I0_1425931710427" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/fastbutton(2).html" data-gapiattached="true" title="+1"></iframe></div></div>
+</div>
+<span class="post-backlinks post-comment-link">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-labels">
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"><span class="post-location">
+</span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>4 comments:</h4>
+<div class="comments-content">
+<script async="async" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function() {
+      var items = [{'id': '2671775706217084418', 'body': 'I want to know the command to scroll the page using SELENIUM IDE. And also what should be the target?', 'timestamp': '1397038217813', 'permalink': 'http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment\0751397038217813#c2671775706217084418', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': '9 April 2014 at 03:10', 'deleteclass': 'item-control blog-admin pid-37504207'}, {'id': '3958096561809113536', 'body': 'I wasn\46#39;t able to get \46quot;scroll(x, y)\46quot; to work due to my special circumstances.  However, I\46#39;m tempted to say that where it says \46quot;scroll\46quot; it should really be \46quot;window.scroll\46quot;, and also questioning why you\46#39;d fill in a non-zero first argument to make it scroll up, and a non-zero second argument to make it scroll down.  In my experience, a positive first argument makes it scroll down, and a positive second argument makes it scroll *right.*  Again, though, I wasn\46#39;t able to use window.scroll() for my purpose, so I couldn\46#39;t test it for myself.\74br /\76\74br /\76It\46#39;s fine if you want to scroll the whole window, but I have some divs with the CSS \46quot;overflow: auto\46quot; that I want to move around in.  I\46#39;m also using Python, not Java, so my code will look a little different from that standpoint too.  Nevertheless, I used:\74br /\76\74br /\76browser \75 selenium2lib._current_browser()\74br /\76browser.execute_script(\46quot;document.getElementById(\46#39;myDesiredElement\46#39;).scrollTop +\75 delta\46quot;)\74br /\76\74br /\76The delta variable is an integer; positive makes the div scroll down, negative makes it scroll up.\74br /\76\74br /\76Since this is one of the highest-ranking Google results for scrolling in Selenium, I thought I should add that tidbit here. ;)', 'timestamp': '1401312089926', 'permalink': 'http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment\0751401312089926#c3958096561809113536', 'author': {'name': 'Stephen Wylie', 'avatarUrl': '//lh4.googleusercontent.com/-pBUB-ep36rg/AAAAAAAAAAI/AAAAAAAAADE/k69zyRLVbas/s512-c/photo.jpg', 'profileUrl': 'http://www.blogger.com/profile/16590401405065119990'}, 'displayTime': '28 May 2014 at 14:21', 'deleteclass': 'item-control blog-admin pid-1316582284'}, {'id': '5952895767765892746', 'body': '\74span class\75\47deleted-comment\47\76This comment has been removed by the author.\74/span\076', 'timestamp': '1419332170486', 'permalink': 'http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment\0751419332170486#c5952895767765892746', 'author': {'name': 'Virgil Șuteu', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/06928907352873244126'}, 'displayTime': '23 December 2014 at 02:56', 'deleteclass': 'item-control blog-admin '}, {'id': '4771227755690624119', 'body': 'Thank you!', 'timestamp': '1419334501451', 'permalink': 'http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment\0751419334501451#c4771227755690624119', 'author': {'name': 'Virgil Șuteu', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/06928907352873244126'}, 'displayTime': '23 December 2014 at 03:35', 'deleteclass': 'item-control blog-admin pid-1505751530'}];
+      var msgs = {'loadMore': 'Load more...', 'loading': 'Loading...', 'loaded': 'No more.', 'addComment': 'Add comment', 'reply': 'Reply', 'delete': 'Delete'};
+      var config = {'blogId': '3216546624020440159', 'postId': '1831499222105769685', 'feed': 'http://seleniumworks.blogspot.com/feeds/1831499222105769685/comments/default', 'authorName': 'Prashanth sams', 'authorUrl': 'http://www.blogger.com/profile/06908577605888008492', 'baseUri': 'http://www.blogger.com', 'maxThreadDepth': 2};
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+            }
+          }
+        }
+        return entry.content.$t;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+</script>
+<div id="comment-holder">
+
+<div id="bc_0_5C" kind="c"><div id="bc_0_5CT"><div id="bc_0_4T" class="comment-thread" kind="r" t="0" u="0"><ol id="bc_0_4TB"><li id="bc_0_0B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/anon36.png"></div><div id="c2671775706217084418" class="comment-block"><div id="bc_0_0M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment=1397038217813#c2671775706217084418">9 April 2014 at 03:10</a></span></div><p id="bc_0_0MC" class="comment-content">I want to know the command to scroll the page using SELENIUM IDE. And also what should be the target?</p><span id="bc_0_0MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-37504207"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=3216546624020440159&postID=2671775706217084418">Delete</a></span></span></div><div id="bc_0_0BR" class="comment-replies"></div><div id="bc_0_0B_box" class="comment-replybox-single"></div></li><li id="bc_0_1B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/photo.jpg"></div><div id="c3958096561809113536" class="comment-block"><div id="bc_0_1M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/16590401405065119990">Stephen Wylie</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment=1401312089926#c3958096561809113536">28 May 2014 at 14:21</a></span></div><p id="bc_0_1MC" class="comment-content">I wasn't able to get "scroll(x, y)" to work due to my special circumstances.  However, I'm tempted to say that where it says "scroll" it should really be "window.scroll", and also questioning why you'd fill in a non-zero first argument to make it scroll up, and a non-zero second argument to make it scroll down.  In my experience, a positive first argument makes it scroll down, and a positive second argument makes it scroll *right.*  Again, though, I wasn't able to use window.scroll() for my purpose, so I couldn't test it for myself.<br><br>It's fine if you want to scroll the whole window, but I have some divs with the CSS "overflow: auto" that I want to move around in.  I'm also using Python, not Java, so my code will look a little different from that standpoint too.  Nevertheless, I used:<br><br>browser = selenium2lib._current_browser()<br>browser.execute_script("document.getElementById('myDesiredElement').scrollTop += delta")<br><br>The delta variable is an integer; positive makes the div scroll down, negative makes it scroll up.<br><br>Since this is one of the highest-ranking Google results for scrolling in Selenium, I thought I should add that tidbit here. ;)</p><span id="bc_0_1MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1316582284"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=3216546624020440159&postID=3958096561809113536">Delete</a></span></span></div><div id="bc_0_1BR" class="comment-replies"></div><div id="bc_0_1B_box" class="comment-replybox-single"></div></li><li id="bc_0_2B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/b36-rounded.png"></div><div id="c5952895767765892746" class="comment-block"><div id="bc_0_2M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/06928907352873244126">Virgil Șuteu</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment=1419332170486#c5952895767765892746">23 December 2014 at 02:56</a></span></div><p id="bc_0_2MC" class="comment-content"><span class="deleted-comment">This comment has been removed by the author.</span></p><span id="bc_0_2MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin "><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=3216546624020440159&postID=5952895767765892746">Delete</a></span></span></div><div id="bc_0_2BR" class="comment-replies"></div><div id="bc_0_2B_box" class="comment-replybox-single"></div></li><li id="bc_0_3B" class="comment" kind="b"><div class="avatar-image-container"><img src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/b36-rounded.png"></div><div id="c4771227755690624119" class="comment-block"><div id="bc_0_3M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/06928907352873244126">Virgil Șuteu</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html?showComment=1419334501451#c4771227755690624119">23 December 2014 at 03:35</a></span></div><p id="bc_0_3MC" class="comment-content">Thank you!</p><span id="bc_0_3MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1505751530"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=3216546624020440159&postID=4771227755690624119">Delete</a></span></span></div><div id="bc_0_3BR" class="comment-replies"></div><div id="bc_0_3B_box" class="comment-replybox-single"></div></li></ol><div id="bc_0_4I" class="continue" kind="ci" style="display: none;"><a href="javascript:;" target="_self">Add comment</a></div><div id="bc_0_4T_box" class="comment-replybox-thread"><iframe allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" frameborder="0" height="254px" id="comment-editor" name="comment-editor" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/comment-iframe.html" width="100%" style="display: block;"></iframe></div><div id="bc_0_4L" class="loadmore loaded" kind="rb"><a href="javascript:;" target="_self">Load more...</a></div></div></div></div></div>
+</div>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<p>
+</p>
+<a href="https://www.blogger.com/comment-iframe.g?blogID=3216546624020440159&postID=1831499222105769685&blogspotRpcToken=5540565" id="comment-editor-src"></a>
+
+<script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/954996138-comment_from_post_iframe.js"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://seleniumworks.blogspot.it/2013/08/how-to-store-left-top-location-width.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://seleniumworks.blogspot.it/2013/08/selenium-basics-tips.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post</a>
+</span>
+<a class="home-link" href="http://seleniumworks.blogspot.it/">Home</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="http://seleniumworks.blogspot.com/feeds/1831499222105769685/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'en_GB'};</script>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget BlogArchive" id="BlogArchive1">
+<h2>Blog Archive</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/search?updated-min=2014-01-01T00:00:00-08:00&updated-max=2015-01-01T00:00:00-08:00&max-results=30">2014</a>
+<span class="post-count" dir="ltr">(30)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2014_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2014_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2014_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(8)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2014_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2014_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/search?updated-min=2013-01-01T00:00:00-08:00&updated-max=2014-01-01T00:00:00-08:00&max-results=50">2013</a>
+<span class="post-count" dir="ltr">(68)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(18)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(4)</span>
+<ul class="posts">
+<li><a href="http://seleniumworks.blogspot.it/2013/08/selenium-locators.html">Selenium &amp; Locators</a></li>
+<li><a href="http://seleniumworks.blogspot.it/2013/08/how-to-store-left-top-location-width.html">How to store Left &amp; Top (Location) | Width &amp; Heigh...</a></li>
+<li><a href="./Seleniumworks  Page Scroll using Selenium WebDriver_files/Seleniumworks  Page Scroll using Selenium WebDriver.html">Page Scroll using Selenium WebDriver</a></li>
+<li><a href="http://seleniumworks.blogspot.it/2013/08/selenium-basics-tips.html">Selenium Basics &amp; Tips</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2013_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/search?updated-min=2012-01-01T00:00:00-08:00&updated-max=2013-01-01T00:00:00-08:00&max-results=3">2012</a>
+<span class="post-count" dir="ltr">(3)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://seleniumworks.blogspot.it/2012_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogArchive1&quot;));" target="configBlogArchive1" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget PopularPosts" id="PopularPosts1">
+<h2>Popular Posts</h2>
+<div class="widget-content popular-posts">
+<ul>
+<li>
+<a href="http://seleniumworks.blogspot.it/2013/01/xslt-generate-interactive-reports-on.html">XSLT- Generate Interactive reports on TestNG+ANT</a>
+</li>
+<li>
+<a href="./Seleniumworks  Page Scroll using Selenium WebDriver_files/Seleniumworks  Page Scroll using Selenium WebDriver.html">Page Scroll using Selenium WebDriver</a>
+</li>
+<li>
+<a href="http://seleniumworks.blogspot.it/2013/02/how-to-set-proxies-with-username-and.html">How to set proxies with Username and Password in FirefoxDriver</a>
+</li>
+<li>
+<a href="http://seleniumworks.blogspot.it/2013/12/appium-native-ios-app-testing-webdriver.html">Appium Native iOS App Testing | WebDriver</a>
+</li>
+<li>
+<a href="http://seleniumworks.blogspot.it/2013/03/headless-browser-testing-using.html">Headless Browser Testing using PhantomJS - GhostDriver | WebDriver</a>
+</li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=PopularPosts&widgetId=PopularPosts1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;PopularPosts1&quot;));" target="configPopularPosts1" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Profile" id="Profile1">
+<h2>About Me</h2>
+<div class="widget-content">
+<a href="https://plus.google.com/104394276212961437513"><img alt="My Photo" class="profile-img" height="80" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/photo(1).jpg" width="80"></a>
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link g-profile" href="https://plus.google.com/104394276212961437513" rel="author" style="background-image: url(//www.google.com/images/icons/ui/gprofile_button-16.png);" data-gapiscan="true" data-onload="true" data-gapiattached="true">
+Prashanth sams
+</a>
+<br>
+<div id="___follow_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 123px; height: 20px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 123px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I1_1425931710455" name="I1_1425931710455" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/follow.html" data-gapiattached="true"></iframe></div>
+</dt>
+<dd class="profile-textblock">A Selenium Geek and Workaholic | <a href="http://www.seleniumworks.com/" rel="nofollow" target="_blank">http://www.seleniumworks.com/</a>&nbsp;</dd>
+</dl>
+<a class="profile-link" href="https://plus.google.com/104394276212961437513" rel="author">View my complete profile</a>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=Profile&widgetId=Profile1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Profile1&quot;));" target="configProfile1" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Followers" id="Followers1">
+<h2 class="title">Followers</h2>
+<div class="widget-content">
+<div id="Followers1-wrapper">
+<div style="margin-right:2px;">
+<script type="text/javascript">
+        if (!window.google || !google.friendconnect) {
+          document.write('<script type="text/javascript"' +
+              'src="//www.google.com/friendconnect/script/friendconnect.js">' +
+              '</scr' + 'ipt>');
+        }
+      </script><script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/friendconnect.js"></script>
+<script type="text/javascript">
+      if (!window.registeredBloggerCallbacks) {
+        window.registeredBloggerCallbacks = true;
+
+        
+
+        
+        gadgets.rpc.register('requestReload', function() {
+          document.location.reload();
+        });
+
+        
+        gadgets.rpc.register('requestSignOut', function(siteId) {
+          
+          google.friendconnect.container.openSocialSiteId = siteId;
+          google.friendconnect.requestSignOut();
+        });
+      }
+    </script>
+<script type="text/javascript">
+    
+    function registerGetBlogUrls() {
+      gadgets.rpc.register('getBlogUrls', function() {
+        var holder = {};
+        
+          
+            
+            
+              holder.currentPost = "http://www.blogger.com/feeds/3216546624020440159/posts/default/1831499222105769685";
+            
+            
+            
+              holder.currentComments = "http://www.blogger.com/feeds/3216546624020440159/1831499222105769685/comments/default";
+            
+            holder.currentPostUrl = "";
+            holder.currentPostId = 1831499222105769685
+          
+          
+          
+            holder.postFeed = "http://www.blogger.com/feeds/3216546624020440159/posts/default";
+          
+          
+          
+            holder.commentFeed = "http://www.blogger.com/feeds/3216546624020440159/comments/default";
+          
+          holder.currentBlogUrl = "http://seleniumworks.blogspot.com/";
+          holder.currentBlogId = "3216546624020440159";
+        
+        return holder;
+      });
+    }
+  </script>
+<script type="text/javascript">
+  if (!window.registeredCommonBloggerCallbacks) {
+    window.registeredCommonBloggerCallbacks = true;
+
+    gadgets.rpc.register('resize_iframe', function(height) {
+      var el = document.getElementById(this['f']);
+      if (el) {
+        el.style.height = height + 'px';
+      }
+    });
+
+    
+    gadgets.rpc.register('set_pref', function() {});
+
+    registerGetBlogUrls();
+  }
+  </script>
+<div id="div-1ekm4rgbo97nb" style="width: 100%; visibility: visible;" class="gadgets-gadget-container"><div id="gfc_iframe_1863318543_0_body"><iframe id="gfc_iframe_1863318543_0" name="gfc_iframe_1863318543_0" style="width: 100%; height: 242px;" frameborder="0" scrolling="no" allowtransparency="true" height="260"></iframe></div></div>
+<script type="text/javascript">
+    var skin = {};
+    skin['FACE_SIZE'] = '32';
+    skin['HEIGHT'] = "260";
+    skin['BORDER_COLOR'] = "transparent";
+    skin['ENDCAP_BG_COLOR'] = "transparent";
+    skin['ENDCAP_TEXT_COLOR'] = "#c9c936";
+    skin['ENDCAP_LINK_COLOR'] = "#ffffff";
+    
+    skin['CONTENT_BG_COLOR'] = "transparent";
+    skin['CONTENT_LINK_COLOR'] = "#ffffff";
+    skin['CONTENT_TEXT_COLOR'] = "#c9c936";
+    skin['CONTENT_SECONDARY_LINK_COLOR'] = "#ffffff";
+    skin['CONTENT_SECONDARY_TEXT_COLOR'] = "#000000";
+    skin['CONTENT_HEADLINE_COLOR'] = "#ffffff";
+    google.friendconnect.container.setParentUrl("/");
+    google.friendconnect.container["renderMembersGadget"](
+    {id: "div-1ekm4rgbo97nb",
+     height: 260,
+     
+     
+     
+     site: "07240016822387643308",
+     locale: 'en_GB' },
+     skin);
+  </script>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=Followers&widgetId=Followers1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Followers1&quot;));" target="configFollowers1" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget HTML" id="HTML2">
+<div class="widget-content">
+<!-- floating share bar Start seleniumworks.blogspot.com--> <style type="text/css"> #pageshare {position:fixed; bottom:35%; margin-left:-778px; float:left; border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;background-color:#cdcd9c;padding:0 0 2px 0;z-index:10;} #pageshare .sbutton {float:left;clear:both;margin:5px 5px 0 5px;} .fb_share_count_top {width:48px !important;} .fb_share_count_top, .fb_share_count_inner {-moz-border-radius:3px;-webkit-border-radius:3px;} .FBConnectButton_Small, .FBConnectButton_RTL_Small {width:49px !important; -moz-border-radius:3px;/*bs-fsmsb*/-webkit-border-radius:3px;} .FBConnectButton_Small .FBConnectButton_Text {padding:2px 2px 3px !important;-moz-border-radius:3px;-webkit-border-radius:3px;font-size:8px;} </style> <div id="pageshare" title="Share seleniumworks.blogspot.in">
+<div style="margin-left:8px;"><div class="sbutton" id="like" style="margin: 5px 0 0 5px;"><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/all.js"></script><fb:like layout="box_count" show_faces="false" class=" fb_iframe_widget" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fseleniumworks.blogspot.it%2F2013%2F08%2Fpage-scroll-using-selenium-webdriver.html&amp;layout=box_count&amp;locale=en_US&amp;sdk=joey&amp;show_faces=false"><span style="vertical-align: bottom; width: 47px; height: 61px;"><iframe name="f19d3a472c" width="1000px" height="1000px" frameborder="0" allowtransparency="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/like.html" style="border: none; visibility: visible; width: 47px; height: 61px;" class=""></iframe></span></fb:like> </div></div> 
+<br><div class="sbutton"><iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/tweet_button.b44aac737ba5fb3711801841c2833c12.en.html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-vertical" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 56px; height: 62px;"></iframe><script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/widgets.js" ;="" type="text/javascript"></script>
+<br><div class="sbutton" id="gplusone"> <script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/plusone.js" gapi_processed="true"></script> <div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1425931710505" name="I0_1425931710505" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/fastbutton(1).html" data-gapiattached="true" title="+1"></iframe></div></div><!-- Do not remove this link --> </div> <!-- floating share bar End --></div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=HTML&widgetId=HTML2&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML2&quot;));" target="configHTML2" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="sidebar section" id="sidebar-right-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="sidebar section" id="sidebar-right-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sidebar section" id="sidebar-right-3"></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot section" id="footer-1"></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3"><div class="widget Attribution" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Awesome Inc. template. Template images by <a href="http://www.istockphoto.com/googleimages.php?id=2622521&platform=blogger&langregion=en_GB" target="_blank">Airyelf</a>. Powered by <a href="http://www.blogger.com/" target="_blank">Blogger</a>.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=3216546624020440159&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=footer-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Attribution1&quot;));" target="configAttribution1" title="Edit">
+<img alt="" height="18" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/4143030425-widgets.js"></script>
+<script type="text/javascript" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '3216546624020440159';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d3216546624020440159','//seleniumworks.blogspot.it/2013/08/page-scroll-using-selenium-webdriver.html','3216546624020440159');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '3216546624020440159', 'bloggerUrl': 'http://www.blogger.com', 'title': 'Seleniumworks', 'pageType': 'item', 'postId': '1831499222105769685', 'url': 'http://seleniumworks.blogspot.it/2013/08/page-scroll-using-selenium-webdriver.html', 'canonicalUrl': 'http://seleniumworks.blogspot.com/2013/08/page-scroll-using-selenium-webdriver.html', 'canonicalHomepageUrl': 'http://seleniumworks.blogspot.com/', 'homepageUrl': 'http://seleniumworks.blogspot.it/', 'blogspotFaviconUrl': 'http://seleniumworks.blogspot.it/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Page Scroll using Selenium WebDriver', 'pageTitle': 'Seleniumworks: Page Scroll using Selenium WebDriver', 'metaDescription': '', 'encoding': 'UTF-8', 'locale': 'en_GB', 'localeUnderscoreDelimited': 'en_gb', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Seleniumworks - Atom\42 href\75\42http://seleniumworks.blogspot.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42Seleniumworks - RSS\42 href\75\42http://seleniumworks.blogspot.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42Seleniumworks - Atom\42 href\75\42http://www.blogger.com/feeds/3216546624020440159/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42Seleniumworks - Atom\42 href\75\42http://seleniumworks.blogspot.com/feeds/1831499222105769685/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,f\75\42chrome\42,g\75\42tick\42,k\75\42jstiming\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){var e\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[e,d];if(void 0\75\75c)try{b.console.timeStamp(\42CSI/\42+a)}catch(h){}};this[g](\42start\42,null,a)}var a;b.performance\46\46(a\75b.performance.timing);var n\75a?new d(a.responseStart):new d;b.jstiming\75{Timer:d,load:n};if(a){var c\75a.navigationStart,h\75a.responseStart;0\74c\46\46h\76\75c\46\46(b[k].srt\75h-c)}if(a){var e\75b[k].load;0\74c\46\46h\76\75c\46\46(e[g](\42_wtsrt\42,void 0,c),e[g](\42wtsrt_\42,\42_wtsrt\42,h),e[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,\nb[f]\46\46b[f].csi\46\46(a\75Math.floor(b[f].csi().pageT),e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b[f].csi().startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b.external.startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),a\46\46(b[k].pt\75a)}catch(p){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[k].load[g](\42aft\42)};var l\75!1;function m(){l||(l\75!0,b[k].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,m,!1):b.attachEvent(\42onscroll\42,m);\n })();\74/script\076', 'mobileHeadScript': '', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42https://www.blogger.com/static/v1/jsbin/1132178481-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/76f25a6f2e06af76', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'sf': 'n', 'tf': ''}}, {'name': 'skin', 'data': {'vars': {'date_border_size': '0', 'description_font': 'normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_background_gradient_cap': 'none', 'tabs_selected_background_color': '#000000', 'footer_background_gradient': 'none', 'date_background': 'transparent none no-repeat scroll top left', 'widget_border_radius': '0', 'post_title_text_color': '#ffffff', 'widget_font': 'normal bold 14px \47Trebuchet MS\47, Trebuchet, sans-serif', 'widget_link_hover_color': '#ffffff', 'link_visited_color': '#ffffff', 'mobile_background_size': 'auto', 'date_space': '30px', 'post_title_font': 'normal bold 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'tabs_text_color': '#ffffff', 'title_separator_border_size': '1px', 'header_background_gradient': 'none', 'widget_outer_background_gradient': 'none', 'widget_link_color': '#000000', 'mobile_button_color': '#ffffff', 'widget_title_font': 'normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'widget_outer_background_color': 'transparent', 'date_last_border_radius_bottom': '0', 'widget_outer_margin_top': '0', 'shadow_spread': '0', 'title_shadow_spread': '-1px', 'body_background': '#c9c967 url(//themes.googleusercontent.com/image?id\07518AptcsW3vZ0Atpeb67jjVfiaZ50_O0rX0EU7kiCPZ4oQqR4ua_WiPbsACITyhYInyBQc) no-repeat fixed top center /* Credit: Airyelf (http://www.istockphoto.com/googleimages.php?id\0752622521\46platform\75blogger) */', 'outer_shadow_spread': '0', 'keycolor': '#c9c967', 'image_shadow_spread': '0', 'image_background_color': '#000000', 'header_font': 'normal bold 50px Covered By Your Grace', 'header_background_color': 'transparent', 'date_header_border_radius_top': '0', 'widget_border_bevel_color': '#595927', 'tabs_border_color': '#000000', 'widget_background_color': '#c9c967', 'date_position': 'static', 'post_first_padding_top': '0', 'tabs_background_gradient': 'none', 'mobile_background_overlay': 'transparent none repeat scroll top left', 'date_border_color': '#000000', 'tabs_background_color': '#000000', 'widget_link_visited_color': '#595927', 'feed_text_color': 'transparent', 'header_margin_top': '0', 'link_hover_color': '#eeeeee', 'date_last_space_bottom': '20px', 'header_margin_bottom': '0', 'date_padding_bottom': '0', 'list_separator_border_size': '1px', 'description_text_color': '#ffffff', 'body_text_color': '#c9c936', 'header_padding_top': '22px', 'post_border_color': '#ffffff', 'footer_text_color': '#000000', 'post_background_color': '#000000', 'pager_space_top': '1em', 'endSide': 'right', 'startSide': 'left', 'body_background_size': 'auto', 'tabs_font': 'normal bold 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'body_font': 'normal normal 13px Georgia, Utopia, \47Palatino Linotype\47, Palatino, serif', 'date_first_border_radius_top': '0', 'date_header_position': '15px', 'date_text_color': '#c4c4c4', 'widget_title_text_color': '#ffffff', 'image_border_color': 'transparent', 'separator_outdent': '15px', 'widget_text_color': '#000000', 'link_color': '#ffffff', 'widget_border_color': '#000000', 'pager_border_radius_top': '0', 'feed_link_color': 'transparent', 'header_text_color': '#ffffff', 'footer_background_color': '#c9c967', 'widget_padding_top': '8px', 'feed_link_visited_color': 'transparent', 'feed_link_hover_color': 'transparent', 'date_font': 'normal normal 14px Molengo', 'tabs_selected_text_color': '#ffffff', 'date_side': 'right', 'post_border_bevel_color': '#000000', 'widget_padding_side': '15px', 'body_background_color': '#000000', 'image_border_radius': '0', 'pager_background_color': '#000000', 'widget_alternate_text_color': '#000000'}, 'override': '#PopularPosts1 h2{\npadding:8px 10px 3px 10;\nwidth:100%;\nmargin:0;\nfont-size:16px;\nposition:relative;\nleft:-14px;\ndisplay:block;\nborder-bottom:0px solid #ccc;\n}\n#PopularPosts1 ul{\nlist-style:none;\ncounter-reset:li;\npadding:10px;\nwidth:100%;\n}\n#PopularPosts1 li{ /* Styles of each element */\nwidth:100%;\nposition:relative;\nleft:0;\nmargin:10 0 6px 10px;\npadding:4px 5px;\n}\n#PopularPosts1 ul li:before{ /* Style of the numbers */\ncontent:counter(li);\ncounter-increment:li;\nposition:absolute;\ntop:6px;\nleft:-3px;\nfont-size:21px;\nwidth:28px;\nheight:28px;\nborder-radius: 50%;\ncolor:#777; /* Text color */\nborder: 2px solid #ddd; /* Rounded border color */\npadding:0;\ntext-indent:9px;\n}\n#PopularPosts1 ul li a{\ndisplay:block;\nposition:relative;\nleft:-5px;\nwidth:100%;\nmargin:0;\nmin-height:28px;\npadding: 5px 3px 4px 39px;\ncolor:#333; /* color of the links */\ntext-decoration:none;\nfont-size:14px; /* Font size of the links */\nfont-style: italic;\n\n}\n#PopularPosts1 ul li a:hover{\ncolor:#3366ff;\nmargin-left:3px;\n}\n\n/* Social icons for Blogger\n----------------------------------------------- */\n#social-icons {\nmargin-bottom:-30px;\nheight:50px;\nwidth:100%;\ndisplay:block;\nclear:both;\nz-index: 2;\nposition: relative;\n}\n.social-media-icons {\ndisplay:table\n}\n.social-media-icons ul {\ntext-align:right;\npadding:5px 5px 0 0\nlist-style-image:none;\nlist-style-position:outside;\nlist-style-type:none;\n}\n.social-media-icons ul {\nmargin-bottom:0;\npadding:0;\nfloat:right;\n}\n.social-media-icons li.media_icon {\nmargin-left:6px;\npadding-left:0 !important;\nbackground:none !important;\ndisplay:inline;\nfloat:left;\n}\n.social-media-icons li:hover {\n-moz-transform: rotate(360deg);\n-webkit-transform: rotate(360deg);\n-o-transform: rotate(360deg);\ntransform: rotate(-360deg);\n-moz-transition: all 0.5s ease-in-out;\n-webkit-transition: all 0.5s ease-in-out;\n-o-transition: all 0.5s ease-in-out;\n-ms-transition: all 0.5s ease-in-out;\ntransition: all 0.5s ease-in-out;\n}'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/2344154539-lbx__en_gb.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/2392111094-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar-right-1', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts1', 'sidebar-right-1', null, document.getElementById('PopularPosts1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebar-right-1', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar-right-1', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebar-right-1', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': 'Awesome Inc. template. Template images by \74a href\75\47http://www.istockphoto.com/googleimages.php?id\0752622521\46platform\75blogger\46langregion\75en_GB\47 target\75\47_blank\47\76Airyelf\74/a\76. Powered by \74a href\75\47http://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76.'}, 'displayModeFull'));
+</script>
+
+<script src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+$("body").css("z-index", "-10");
+$("body").fadeIn(0);
+
+$(".post-title a, .blog-pager-older-link, .blog-pager-newer-link, .tabs").click(function(event){
+event.preventDefault();
+linkLocation = this.href;
+$("body").fadeOut(500, redirectPage); });
+function redirectPage() {
+window.location = linkLocation;
+}
+});
+//]]>
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47254129-1', 'seleniumworks.com');
+  ga('send', 'pageview');
+
+</script>
+<style>
+html {
+background-color: #F2F2F2; /* Color fading */
+}
+</style><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/rFG58m7xAig.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/rFG58m7xAig(1).html" style="border: none;"></iframe></div></div></div><iframe frameborder="0" id="google_top_static_frame" name="google_top_static_frame" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/blank.html" style="height: 0px; width: 0px; position: absolute;"></iframe><iframe name="oauth2relay242823687" id="oauth2relay242823687" src="./Seleniumworks  Page Scroll using Selenium WebDriver_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>
