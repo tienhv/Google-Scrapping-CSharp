@@ -1,0 +1,10 @@
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\bin\Debug\GoogleScrapper.exe
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\bin\Debug\GoogleScrapper.pdb
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\bin\Debug\log4net.dll
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\bin\Debug\log4net.xml
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\obj\x86\Debug\GoogleScrapper.csprojResolveAssemblyReference.cache
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\obj\x86\Debug\GoogleScrapper.exe
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\obj\x86\Debug\GoogleScrapper.pdb
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\bin\Debug\GoogleScrapper.exe.config
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\obj\x86\Debug\GoogleScrapper.MainForm.resources
+D:\Dropbox\paper2\GoogleScrapper\GoogleScrapper\obj\x86\Debug\GoogleScrapper.csproj.GenerateResource.Cache
